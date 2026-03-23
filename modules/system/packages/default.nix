@@ -8,6 +8,9 @@
     spotify
     steam
     thunderbird
+    kdePackages.dolphin
+    kdePackages.ark
+
 
     bind
     binutils
@@ -18,7 +21,9 @@
     gnumake
     gocryptfs
     htop
+    mc
     i2c-tools
+    p7zip
     killall
     man-pages
     nix
@@ -38,6 +43,11 @@
   };
 
   programs.xwayland.enable = true;
+
+  programs.gamescope = {
+    enable = true;
+    capSysNice = true;
+  };
 
   programs.steam = {
     enable = true;

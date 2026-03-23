@@ -9,6 +9,7 @@
       "root"
       "fractal"
     ];
+    auto-optimise-store = true;
   };
 
   nix.gc = {
