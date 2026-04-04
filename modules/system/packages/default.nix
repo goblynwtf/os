@@ -3,7 +3,6 @@
 {
   environment.systemPackages = with pkgs; [
     gcc
-    alacritty
     firefox
     slack
     spotify
