@@ -37,7 +37,17 @@
 
     settings = {
       # Theming — dynamic wallpaper-based colors via matugen
+      currentThemeName = "dynamic";
+      currentThemeCategory = "dynamic";
       matugenScheme = "scheme-tonal-spot";
+      runDmsMatugenTemplates = true;
+      runUserMatugenTemplates = true;
+      matugenTemplateAlacritty = true;
+      matugenTemplateNiri = true;
+      matugenTemplateFirefox = true;
+      matugenTemplateGtk = true;
+      matugenTemplateQt5ct = true;
+      matugenTemplateQt6ct = true;
       cornerRadius = 12;
       popupTransparency = 1.0;
       enableRippleEffects = true;

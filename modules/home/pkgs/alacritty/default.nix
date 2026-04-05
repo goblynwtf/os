@@ -5,10 +5,19 @@
     settings = {
       general.import = [ "~/.config/alacritty/dank-theme.toml" ];
 
+      font = {
+        normal.family = "PragmataPro Mono Liga";
+        size = 13;
+      };
+
+      colors.draw_bold_text_with_bright_colors = true;
+
+      env.COLORTERM = "truecolor";
+
       window = {
         decorations = "None";
         padding = { x = 12; y = 12; };
-        opacity = 1.0;
+        opacity = 0.85;
       };
 
       scrolling.history = 3023;
