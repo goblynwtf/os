@@ -16,6 +16,9 @@
       flake-update = "nix flake update";
       flake-check = "nix flake check";
 
+      # Editor
+      e = "zeditor";
+
       # Git
       gs = "git status";
       gd = "git diff";

@@ -12,7 +12,7 @@
 
       # NixOS rebuild shortcuts
       rebuild = "sudo nixos-rebuild switch --flake .#$(hostname)";
-      rebuild-build = "sudo nixos-rebuild build --flake .#$(hostname)";
+      rebuild-build = "nixos-rebuild build --flake .#$(hostname)";
       flake-update = "nix flake update";
       flake-check = "nix flake check";
 
@@ -20,6 +20,9 @@
       gs = "git status";
       gd = "git diff";
       gl = "git log --oneline --graph --decorate -20";
+
+      # Editor
+      e = "zeditor";
 
       # Safety
       rm = "rm -i";

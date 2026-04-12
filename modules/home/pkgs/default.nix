@@ -7,11 +7,11 @@
     ./git
     ./rust
     ./starship
+    ./zed
   ];
 
   home.packages = with pkgs; [
     emacs-pgtk
-    zed-editor
     discord
     (dbvisualizer.overrideAttrs (old: {
       installPhase = builtins.replaceStrings [ "${openjdk17}" ] [ "${openjdk21}" ] old.installPhase;
