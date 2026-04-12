@@ -1,9 +1,11 @@
-{ ... }:
+{ pkgs, ... }:
 {
   programs.alacritty = {
     enable = true;
     settings = {
       general.import = [ "~/.config/alacritty/dank-theme.toml" ];
+
+      terminal.shell.program = "${pkgs.fish}/bin/fish";
 
       font = {
         normal.family = "PragmataPro Mono Liga";

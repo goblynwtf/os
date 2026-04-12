@@ -3,6 +3,9 @@
   imports = [
     ./alacritty
     ./bash
+    ./fish
+    ./git
+    ./rust
     ./starship
   ];
 
@@ -37,6 +40,13 @@
     ripgrep
     fd
     eza
+    bat
+    du-dust
+    ncspot
+    hyperfine
+    gitui
+    yazi
+    zellij
     curl
     wget
     tree

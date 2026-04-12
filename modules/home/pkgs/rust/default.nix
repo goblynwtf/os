@@ -1,0 +1,8 @@
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [
+    rustup
+    bacon
+    cargo-info
+  ];
+}
