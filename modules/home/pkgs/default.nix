@@ -41,7 +41,7 @@
     fd
     eza
     bat
-    du-dust
+    dust
     ncspot
     hyperfine
     gitui

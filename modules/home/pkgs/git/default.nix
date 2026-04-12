@@ -2,22 +2,22 @@
 {
   programs.git = {
     enable = true;
-    userName = "Arto Levi";
-    userEmail = "arto.levi@tuta.com";
-
-    delta = {
-      enable = true;
-      options = {
-        navigate = true;
-        side-by-side = true;
-        line-numbers = true;
-        syntax-theme = "base16";
-      };
-    };
-
-    extraConfig = {
+    settings = {
+      user.name = "Arto Levi";
+      user.email = "arto.levi@tuta.com";
       merge.conflictstyle = "diff3";
       diff.colorMoved = "default";
+    };
+  };
+
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      navigate = true;
+      side-by-side = true;
+      line-numbers = true;
+      syntax-theme = "base16";
     };
   };
 }
