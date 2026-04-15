@@ -138,15 +138,15 @@ Add a fully-configured Emacs setup to the NixOS flake, split between Nix (binary
 **Files:**
 - Create: `modules/home/pkgs/emacs/lisp/init-coding.el`
 
-- [ ] `treesit-auto`: `:demand t`, disable auto-install (`treesit-auto-install nil`), add to auto-mode-alist, global mode; add `nix-mode` to `treesit-auto-exempt-modes` to prevent conflict
-- [ ] Set `treesit-font-lock-level` to 4
-- [ ] `nix-mode`: associate `\.nix$`
-- [ ] `eglot` (built-in): hooks for `rust-ts-mode`, `go-ts-mode`, `java-ts-mode`, `ruby-ts-mode`, `nix-mode`, `html-ts-mode`; autoshutdown, disable event log; add nixd for nix-mode
-- [ ] `dape`: lazy-load via `:commands dape` (built-in configs handle lldb-dap, delve, etc.)
-- [ ] `envrc`: `:demand t`, `envrc-global-mode` (critical for project-level LSP servers via direnv)
-- [ ] `project` (built-in): keybindings for find-file, find-regexp, dired, shell
-- [ ] `eldoc` (built-in): compact echo area
-- [ ] `(provide 'init-coding)`
+- [x] `treesit-auto`: `:demand t`, disable auto-install (`treesit-auto-install nil`), add to auto-mode-alist, global mode; add `nix-mode` to `treesit-auto-exempt-modes` to prevent conflict
+- [x] Set `treesit-font-lock-level` to 4
+- [x] `nix-mode`: associate `\.nix$`
+- [x] `eglot` (built-in): hooks for `rust-ts-mode`, `go-ts-mode`, `java-ts-mode`, `ruby-ts-mode`, `nix-mode`, `html-ts-mode`; autoshutdown, disable event log; add nixd for nix-mode
+- [x] `dape`: lazy-load via `:commands dape` (built-in configs handle lldb-dap, delve, etc.)
+- [x] `envrc`: `:demand t`, `envrc-global-mode` (critical for project-level LSP servers via direnv)
+- [x] `project` (built-in): keybindings for find-file, find-regexp, dired, shell
+- [x] `eldoc` (built-in): compact echo area
+- [x] `(provide 'init-coding)`
 
 ### Task 8: Create `lisp/init-org.el`
 
