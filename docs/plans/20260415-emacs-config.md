@@ -74,11 +74,11 @@ Add a fully-configured Emacs setup to the NixOS flake, split between Nix (binary
 **Files:**
 - Create: `modules/home/pkgs/emacs/early-init.el`
 
-- [ ] Native compilation: silence async warnings, enable `package-native-compile`
-- [ ] GC tuning: set `gc-cons-threshold` to `most-positive-fixnum` during init, restore 16MB after startup
-- [ ] UI suppression: disable menu-bar, tool-bar, scroll-bars via `default-frame-alist` (no flicker)
-- [ ] Disable `package-enable-at-startup` (manual init in `init.el`)
-- [ ] `git add` new file
+- [x] Native compilation: silence async warnings, enable `package-native-compile`
+- [x] GC tuning: set `gc-cons-threshold` to `most-positive-fixnum` during init, restore 16MB after startup
+- [x] UI suppression: disable menu-bar, tool-bar, scroll-bars via `default-frame-alist` (no flicker)
+- [x] Disable `package-enable-at-startup` (manual init in `init.el`)
+- [x] `git add` new file
 
 ### Task 3: Create `init.el` (entry point)
 
