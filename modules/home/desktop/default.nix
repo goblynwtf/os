@@ -171,6 +171,10 @@
 
   gtk = {
     enable = true;
+    theme = {
+      name = "Adwaita";
+      package = pkgs.gnome-themes-extra;
+    };
     gtk4.theme = null;
     iconTheme = {
       name = "Adwaita";

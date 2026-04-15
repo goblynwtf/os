@@ -4,7 +4,13 @@
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     QT_QPA_PLATFORM = "wayland";
+    QT_QPA_PLATFORMTHEME = "qt5ct";
   };
+
+  environment.systemPackages = with pkgs; [
+    libsForQt5.qt5ct
+    kdePackages.qt6ct
+  ];
 
   services.upower.enable = true;
   services.power-profiles-daemon.enable = true;

@@ -11,4 +11,6 @@
     ./nix-ld.nix
     ./virtualization.nix
   ];
+
+  services.udisks2.enable = true;
 }
