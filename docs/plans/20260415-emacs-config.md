@@ -97,13 +97,13 @@ Add a fully-configured Emacs setup to the NixOS flake, split between Nix (binary
 **Files:**
 - Create: `modules/home/pkgs/emacs/lisp/init-ui.el`
 
-- [ ] `doom-themes`: `:demand t`, load `doom-one`, enable `doom-themes-org-config`
-- [ ] `doom-modeline`: `:demand t`, enable mode
-- [ ] `nerd-icons` package (comment: run `M-x nerd-icons-install-fonts` on first launch)
-- [ ] Font: PragmataPro Mono Liga, height 170
-- [ ] Line numbers in `prog-mode`, `global-hl-line-mode`, `pixel-scroll-precision-mode`
-- [ ] `dashboard`: `:demand t`, centered, items (recents, projects, agenda)
-- [ ] `(provide 'init-ui)`
+- [x] `doom-themes`: `:demand t`, load `doom-one`, enable `doom-themes-org-config`
+- [x] `doom-modeline`: `:demand t`, enable mode
+- [x] `nerd-icons` package (comment: run `M-x nerd-icons-install-fonts` on first launch)
+- [x] Font: PragmataPro Mono Liga, height 170
+- [x] Line numbers in `prog-mode`, `global-hl-line-mode`, `pixel-scroll-precision-mode`
+- [x] `dashboard`: `:demand t`, centered, items (recents, projects, agenda)
+- [x] `(provide 'init-ui)`
 
 ### Task 5: Create `lisp/init-completion.el`
 
