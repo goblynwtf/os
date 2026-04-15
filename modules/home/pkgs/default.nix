@@ -3,6 +3,7 @@
   imports = [
     ./alacritty
     ./bash
+    ./emacs
     ./fish
     ./git
     ./rust
@@ -11,7 +12,6 @@
   ];
 
   home.packages = with pkgs; [
-    emacs-pgtk
     discord
     (dbvisualizer.overrideAttrs (old: {
       installPhase = builtins.replaceStrings [ "${openjdk17}" ] [ "${openjdk21}" ] old.installPhase;
