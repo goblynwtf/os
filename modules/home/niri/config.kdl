@@ -84,12 +84,47 @@ hotkey-overlay {}
 
 animations {}
 
+// --- named workspaces ---
+// Use `niri msg windows` to verify app-ids if a rule doesn't fire.
+workspace "master"
+workspace "web"
+workspace "chat"
+workspace "docs"
+workspace "misc"
+
 // --- window rules ---
 // dms/layout.kdl emits a global window-rule with geometry-corner-radius 12,
 // clip-to-geometry true, tiled-state true, draw-border-with-background false.
 // Because window-rule is a multipart accumulating section (not merged), that
 // DMS rule and our Firefox PiP rule below coexist without conflict.
 
+// workspace assignments
+window-rule {
+    match app-id=r#"firefox$"#
+    match app-id="google-chrome"
+    open-on-workspace "web"
+}
+
+window-rule {
+    match app-id="discord"
+    match app-id="org.telegram.desktop"
+    match app-id="Slack"
+    open-on-workspace "chat"
+}
+
+window-rule {
+    match app-id="obsidian"
+    match app-id="Koodo Reader"
+    match app-id="calibre"
+    open-on-workspace "docs"
+}
+
+window-rule {
+    match app-id="synology-drive"
+    open-on-workspace "misc"
+}
+
+// special-case rules
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
