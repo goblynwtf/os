@@ -87,9 +87,9 @@ animations {}
 // --- named workspaces ---
 // Use `niri msg windows` to verify app-ids if a rule doesn't fire.
 workspace "misc"
-workspace "docs"
-workspace "chat"
 workspace "web"
+workspace "chat"
+workspace "docs"
 workspace "master"
 
 // --- window rules ---
