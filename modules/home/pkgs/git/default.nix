@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       user.name = "Arto Levi";
-      user.email = "arto.levi@tuta.com";
+      user.email = "arto.levi@outlook.com";
       merge.conflictstyle = "diff3";
       diff.colorMoved = "default";
     };

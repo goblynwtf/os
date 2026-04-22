@@ -98,6 +98,47 @@
       # Dock — disabled
       showDock = false;
 
+      # Bar border
+      barConfigs = [
+        {
+          id = "default";
+          name = "Main Bar";
+          enabled = true;
+          position = 0;
+          screenPreferences = [ "all" ];
+          showOnLastDisplay = true;
+          leftWidgets = [
+            "workspaceSwitcher"
+            "focusedWindow"
+          ];
+          centerWidgets = [
+            "music"
+            "clock"
+            "weather"
+          ];
+          rightWidgets = [
+            "systemTray"
+            "clipboard"
+            "cpuUsage"
+            "memUsage"
+            "notificationButton"
+            "battery"
+            "controlCenterButton"
+          ];
+          spacing = 4;
+          innerPadding = 4;
+          bottomGap = 2;
+          transparency = 1.0;
+          widgetTransparency = 1.0;
+          squareCorners = false;
+          noBackground = false;
+          borderEnabled = true;
+          borderColor = "primary";
+          borderOpacity = 1.0;
+          borderThickness = 2;
+        }
+      ];
+
       # Notifications — bottom-right, compact, with history
       notificationPopupPosition = 3; # Right = bottom-right
       notificationCompactMode = true;

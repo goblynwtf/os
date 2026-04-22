@@ -20,8 +20,8 @@
         ahead = "⇡\${count}";
         behind = "⇣\${count}";
         diverged = "⇕⇡\${ahead_count}⇣\${behind_count}";
-        untracked = "?";
-        modified = "!";
+        untracked = "?\${count}";
+        modified = "!\${count}";
         staged = "+";
       };
 

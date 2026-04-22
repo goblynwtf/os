@@ -102,7 +102,6 @@ workspace "master"
 window-rule {
     match app-id=r#"firefox$"#
     match app-id="google-chrome"
-    open-on-workspace "web"
     open-fullscreen true
     open-focused false
 }
