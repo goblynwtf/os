@@ -155,10 +155,10 @@ Motivation: unified modern shell across interactive and `nix develop` / `nix-she
 - Modify: `modules/home/pkgs/default.nix`
 - Delete: `modules/home/pkgs/fish/default.nix`
 
-- [ ] in `modules/home/pkgs/default.nix`, replace `./fish` with `./nushell` in the imports list (keep alphabetical order: `nushell` goes between `git` and `rust`)
-- [ ] `git rm modules/home/pkgs/fish/default.nix` (removes file and stages deletion)
-- [ ] `rmdir modules/home/pkgs/fish 2>/dev/null || true` — remove now-empty directory (git doesn't track empty dirs; filesystem cleanup)
-- [ ] validate: `nix flake check` — must pass before task 3
+- [x] in `modules/home/pkgs/default.nix`, replace `./fish` with `./nushell` in the imports list (keep alphabetical order: `nushell` goes between `git` and `rust`)
+- [x] `git rm modules/home/pkgs/fish/default.nix` (removes file and stages deletion)
+- [x] `rmdir modules/home/pkgs/fish 2>/dev/null || true` — remove now-empty directory (git doesn't track empty dirs; filesystem cleanup)
+- [x] validate: `nix flake check` — must pass before task 3
 - Note: `programs.fzf.enable = true` is being dropped with the fish module. The `fzf` binary will no longer be installed. This is intentional per the "skip fzf integration" decision — add `fzf` to `home.packages` later if a need arises.
 
 ### Task 3: Point starship at nushell instead of fish

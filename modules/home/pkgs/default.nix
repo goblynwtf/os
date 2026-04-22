@@ -4,8 +4,8 @@
     ./alacritty
     ./bash
     ./emacs
-    ./fish
     ./git
+    ./nushell
     ./rust
     ./starship
     ./zed
