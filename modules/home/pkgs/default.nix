@@ -3,6 +3,7 @@
   imports = [
     ./alacritty
     ./bash
+    ./direnv
     ./emacs
     ./git
     ./nushell
