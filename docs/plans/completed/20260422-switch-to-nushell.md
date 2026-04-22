@@ -202,9 +202,9 @@ Motivation: unified modern shell across interactive and `nix develop` / `nix-she
 
 ### Task 8: [Final] Update documentation and move plan
 
-- [ ] update `CLAUDE.md` module-tree section: replace the fish reference in the `pkgs/` listing with nushell; note that nushell is the login shell and bash is the rescue shell
-- [ ] `mkdir -p docs/plans/completed`
-- [ ] move this plan file to `docs/plans/completed/20260422-switch-to-nushell.md`
+- [x] update `CLAUDE.md` module-tree section: replace the fish reference in the `pkgs/` listing with nushell; note that nushell is the login shell and bash is the rescue shell
+- [x] `mkdir -p docs/plans/completed`
+- [x] move this plan file to `docs/plans/completed/20260422-switch-to-nushell.md`
 
 ## Post-Completion
 

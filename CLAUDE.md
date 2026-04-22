@@ -52,7 +52,7 @@ flake.nix
 │   └── user/               ← user `fractal` with groups (wheel, docker, audio, etc.)
 │   modules/home/           ← shared Home Manager configuration for user `fractal`
 │   ├── desktop/            ← DankMaterialShell (full declarative config: theming, panel, notifications, power, lock screen, fonts, launcher), cursor theme, XDG MIME defaults
-│   └── pkgs/               ← user packages (zed-editor, claude-code, ripgrep, etc.) + bash config
+│   └── pkgs/               ← user packages (zed-editor, claude-code, ripgrep, etc.) + nushell (login shell) + bash (rescue shell)
 │       └── emacs/          ← Emacs (emacs-pgtk + treesit grammars via Nix, elisp packages via use-package/MELPA)
 │                              Runtime deps: rust-analyzer via rustup (`rustup default stable`)
 │                              First launch: `M-x nerd-icons-install-fonts`, create `~/org/` directory
@@ -77,4 +77,5 @@ flake.nix
 - System modules use `home-manager.useGlobalPkgs = true` and `home-manager.useUserPackages = false`.
 - `specialArgs` passes `{ inputs }` to system modules and `{ inputs; username; realname }` to home-manager modules.
 - Two LSP servers for Nix are installed: `nixd` (preferred) and `nil`.
+- Nushell is the user's login shell (set via `users.users.fractal.shell` in `modules/system/user/default.nix`); bash is kept installed as a rescue shell.
 - Evaluation warnings (e.g., deprecated `xorg.*` renames) may originate from upstream flake inputs — particularly `quickshell` (transitive dep of DankMaterialShell) which is pinned to a specific rev and can lag behind nixpkgs-unstable API changes. If `grep` finds nothing locally, investigate upstream inputs.
