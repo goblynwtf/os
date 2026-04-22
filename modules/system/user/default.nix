@@ -1,8 +1,9 @@
-{ ... }:
+{ pkgs, ... }:
 {
   users.users.fractal = {
     isNormalUser = true;
     description = "fractal";
+    shell = pkgs.nushell;
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -12,4 +13,6 @@
       "video"
     ];
   };
+
+  environment.shells = [ pkgs.nushell ];
 }

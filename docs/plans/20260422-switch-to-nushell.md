@@ -182,10 +182,10 @@ Motivation: unified modern shell across interactive and `nix develop` / `nix-she
 **Files:**
 - Modify: `modules/system/user/default.nix`
 
-- [ ] change the module signature from `{ ... }:` to `{ pkgs, ... }:`
-- [ ] add `shell = pkgs.nushell;` inside `users.users.fractal` (place it below `description`)
-- [ ] add `environment.shells = [ pkgs.nushell ];` at module top level (sibling to `users.users.fractal`) — ensures nu lands in `/etc/shells` for PAM/`chsh`
-- [ ] validate: `nix flake check` — must pass before task 6
+- [x] change the module signature from `{ ... }:` to `{ pkgs, ... }:`
+- [x] add `shell = pkgs.nushell;` inside `users.users.fractal` (place it below `description`)
+- [x] add `environment.shells = [ pkgs.nushell ];` at module top level (sibling to `users.users.fractal`) — ensures nu lands in `/etc/shells` for PAM/`chsh`
+- [x] validate: `nix flake check` — must pass before task 6
 
 ### Task 6: Build-test both host configurations
 
