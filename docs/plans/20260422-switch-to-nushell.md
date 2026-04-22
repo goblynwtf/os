@@ -195,10 +195,10 @@ Motivation: unified modern shell across interactive and `nix develop` / `nix-she
 
 ### Task 7: Verify acceptance criteria (still pre-switch)
 
-- [ ] confirm all files from the "Context" section are changed as described
-- [ ] re-read the new `nushell/default.nix` to sanity-check the `def` syntax (string-interpolation `$"..."`, external `^hostname`, `| str trim`)
-- [ ] run `nix flake check` one final time
-- [ ] (Optional) skim for any remaining live references to fish: `grep -rnE 'pkgs\.fish\b|programs\.fish\b|enableFishIntegration' modules/` — no hits expected.
+- [x] confirm all files from the "Context" section are changed as described
+- [x] re-read the new `nushell/default.nix` to sanity-check the `def` syntax (string-interpolation `$"..."`, external `^hostname`, `| str trim`)
+- [x] run `nix flake check` one final time
+- [x] (Optional) skim for any remaining live references to fish: `grep -rnE 'pkgs\.fish\b|programs\.fish\b|enableFishIntegration' modules/` — no hits expected.
 
 ### Task 8: [Final] Update documentation and move plan
 
