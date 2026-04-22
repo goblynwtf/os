@@ -144,9 +144,9 @@ Motivation: unified modern shell across interactive and `nix develop` / `nix-she
 **Files:**
 - Create: `modules/home/pkgs/nushell/default.nix`
 
-- [ ] create `modules/home/pkgs/nushell/default.nix` with `programs.nushell.enable`, the `shellAliases` block, `extraConfig` (banner off + `rebuild`/`rebuild-build` defs), and `programs.direnv.enableNushellIntegration = true`
-- [ ] `git add modules/home/pkgs/nushell/default.nix` — flakes only see git-tracked files
-- [ ] validate: `nix flake check` — must pass before task 2
+- [x] create `modules/home/pkgs/nushell/default.nix` with `programs.nushell.enable`, the `shellAliases` block, `extraConfig` (banner off + `rebuild`/`rebuild-build` defs), and `programs.direnv.enableNushellIntegration = true`
+- [x] `git add modules/home/pkgs/nushell/default.nix` — flakes only see git-tracked files
+- [x] validate: `nix flake check` — must pass before task 2
 - ⚠️ **fallback if `programs.direnv.enableNushellIntegration` is not an option** on the pinned home-manager rev (surfaced by `nix flake check` as an unknown-option error): replace that line with an `extraConfig` snippet that appends the direnv nu hook, e.g. `$env.config.hooks.env_change.PWD = ($env.config.hooks.env_change.PWD? | default []) ++ [{|_,_| ^direnv export json | from json | default {} | load-env }]`. Re-run `nix flake check` before moving on.
 
 ### Task 2: Wire nushell into the home-manager aggregator and drop fish
