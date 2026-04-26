@@ -23,6 +23,10 @@
 
       def rebuild [] { sudo nixos-rebuild switch --flake $".#(sys host | get hostname)" }
       def rebuild-build [] { nixos-rebuild build --flake $".#(sys host | get hostname)" }
+
+      source ~/.config/nushell/prompt.nu
     '';
   };
+
+  home.file.".config/nushell/prompt.nu".source = ./prompt.nu;
 }

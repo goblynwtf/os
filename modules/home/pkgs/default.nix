@@ -8,7 +8,6 @@
     ./git
     ./nushell
     ./rust
-    ./starship
     ./zed
   ];
 

@@ -23,9 +23,8 @@
 
       mouse-hide-while-typing = true;
       copy-on-select = false;
-      audible-bell = false;
 
-      shell-integration = "detect";
+      shell-integration = "nushell";
       clipboard-paste-protection = true;
       confirm-close-surface = false;
 
