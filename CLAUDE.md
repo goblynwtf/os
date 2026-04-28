@@ -32,7 +32,7 @@ This is a multi-host NixOS flake configuration (x86_64-linux) running on `nixpkg
 
 **Hosts:**
 - `feywild` — laptop with LUKS-encrypted root + swap
-- `maple` — desktop with plain ext4, no swap
+- `maple` — desktop with plain ext4 + zram swap
 
 **Flake inputs:**
 - `nixpkgs` → `nixos-unstable`
@@ -42,26 +42,28 @@ This is a multi-host NixOS flake configuration (x86_64-linux) running on `nixpkg
 **Module tree:**
 ```
 flake.nix
-├── hosts/feywild/          ← laptop host (LUKS + swap, hardware + imports shared modules)
-├── hosts/maple/            ← desktop host (plain ext4, hardware + imports shared modules + gaming)
-│   modules/gaming/          ← maple-only: Steam, Proton-GE, Gamescope, GameMode, MangoHUD, corectrl, controllers
-│   modules/system/         ← shared base NixOS layer + explicit host roles
-│   ├── nixos/              ← base OS modules plus desktop/dev splits
-│   ├── desktop/            ← Niri (Wayland) + SDDM + GNOME + fonts
-│   ├── packages/           ← system packages split into base, desktop, dev, work
+├── hosts/feywild/          ← laptop host (hardware + shared base + explicit roles)
+├── hosts/maple/            ← desktop host (hardware + shared base + explicit roles + gaming + security)
+├── modules/gaming/         ← maple-only: Steam, Proton-GE, Gamescope, GameMode, MangoHUD, corectrl, controllers
+├── modules/security/       ← maple-only security/network extras
+├── modules/system/         ← shared NixOS base plus role-scoped additions
+│   ├── default.nix         ← shared base system + shared Home Manager wiring
+│   ├── desktop/            ← graphical system stack shared by the desktop role
+│   ├── nixos/              ← system feature modules as <feature>/default.nix
+│   ├── packages/           ← system package sets as <feature>/default.nix
 │   ├── roles/              ← explicit desktop/dev/work host roles
 │   └── user/               ← user `fractal` with base groups (wheel, audio, etc.)
-│   modules/home/           ← shared Home Manager configuration for user `fractal`
-│   ├── desktop/            ← DankMaterialShell (full declarative config: theming, panel, notifications, power, lock screen, fonts, launcher), cursor theme, XDG MIME defaults
-│   └── pkgs/               ← user packages (zed-editor, claude-code, ripgrep, etc.) + nushell (login shell) + bash (rescue shell)
-│       └── emacs/          ← Emacs (emacs-pgtk + treesit grammars via Nix, elisp packages via use-package/MELPA)
-│                              Runtime deps: rust-analyzer via rustup (`rustup default stable`)
-│                              First launch: `M-x nerd-icons-install-fonts`, create `~/org/` directory
+└── modules/home/           ← Home Manager modules for user `fractal`
+    ├── default.nix         ← shared/base HM entrypoint
+    ├── desktop/            ← DMS, graphical helpers, MIME defaults, GTK/Qt theming
+    ├── niri/               ← live-editable niri config
+    └── pkgs/               ← shared user packages (shells, editors, apps); see pkgs/emacs/ for Emacs specifics
 ```
 
 **Host and role convention:**
 - `modules/system/default.nix` is the shared base layer only.
 - Hosts opt into `modules/system/roles/<name>/` explicitly for desktop/dev/work behavior.
+- The `desktop` role also pulls in desktop-specific Home Manager modules for `fractal`.
 - For host-specific modules, create them at `modules/<name>/` (top-level, not under `modules/system/`) and import explicitly from the host's `default.nix`.
 - Established pattern: `modules/gaming/` (maple-only).
 

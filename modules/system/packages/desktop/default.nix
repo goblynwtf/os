@@ -1,18 +1,20 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    file
-    git
-    gocryptfs
-    htop
-    jq
-    killall
-    man-pages
-    mc
-    p7zip
-    unixtools.xxd
-    usbutils
+    cups-pk-helper
+    file-roller
+    firefox
+    kitty
+    nautilus
+    playerctl
+    spotify
+    thunderbird
+    wl-clipboard
+    wpa_supplicant_gui
+    xwayland-satellite
   ];
+
+  programs.xwayland.enable = true;
 
   programs._1password.enable = true;
   programs._1password-gui = {

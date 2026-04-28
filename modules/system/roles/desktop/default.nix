@@ -2,7 +2,12 @@
 {
   imports = [
     ../../desktop
-    ../../nixos/desktop.nix
-    ../../packages/desktop.nix
+    ../../nixos/desktop
+    ../../packages/desktop
+  ];
+
+  home-manager.users.fractal.imports = [
+    ../../../home/desktop
+    ../../../home/niri
   ];
 }
