@@ -3,10 +3,9 @@
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    ./nixos
+    ./nixos/base.nix
     ./user
-    ./desktop
-    ./packages
+    ./packages/base.nix
   ];
 
   home-manager.useGlobalPkgs = true;

@@ -45,11 +45,12 @@ flake.nix
 ├── hosts/feywild/          ← laptop host (LUKS + swap, hardware + imports shared modules)
 ├── hosts/maple/            ← desktop host (plain ext4, hardware + imports shared modules + gaming)
 │   modules/gaming/          ← maple-only: Steam, Proton-GE, Gamescope, GameMode, MangoHUD, corectrl, controllers
-│   modules/system/         ← shared NixOS system configuration
-│   ├── nixos/              ← boot, audio (PipeWire), bluetooth, locale, network, nix settings, virtualization
+│   modules/system/         ← shared base NixOS layer + explicit host roles
+│   ├── nixos/              ← base OS modules plus desktop/dev splits
 │   ├── desktop/            ← Niri (Wayland) + SDDM + GNOME + fonts
-│   ├── packages/           ← system packages + direnv + 1Password
-│   └── user/               ← user `fractal` with groups (wheel, docker, audio, etc.)
+│   ├── packages/           ← system packages split into base, desktop, dev, work
+│   ├── roles/              ← explicit desktop/dev/work host roles
+│   └── user/               ← user `fractal` with base groups (wheel, audio, etc.)
 │   modules/home/           ← shared Home Manager configuration for user `fractal`
 │   ├── desktop/            ← DankMaterialShell (full declarative config: theming, panel, notifications, power, lock screen, fonts, launcher), cursor theme, XDG MIME defaults
 │   └── pkgs/               ← user packages (zed-editor, claude-code, ripgrep, etc.) + nushell (login shell) + bash (rescue shell)
@@ -58,8 +59,9 @@ flake.nix
 │                              First launch: `M-x nerd-icons-install-fonts`, create `~/org/` directory
 ```
 
-**Host-specific module convention:**
-- `modules/system/default.nix` auto-imports all its subdirectories — any new dir there applies to both hosts.
+**Host and role convention:**
+- `modules/system/default.nix` is the shared base layer only.
+- Hosts opt into `modules/system/roles/<name>/` explicitly for desktop/dev/work behavior.
 - For host-specific modules, create them at `modules/<name>/` (top-level, not under `modules/system/`) and import explicitly from the host's `default.nix`.
 - Established pattern: `modules/gaming/` (maple-only).
 
@@ -74,7 +76,7 @@ flake.nix
 **Important notes:**
 - `configuration.nix` in the repo root is the original generated file; it is **not imported by the flake** and is kept for reference only. All active configuration flows through `hosts/<hostname>/`.
 - Host-specific config (LUKS, hardware) lives in `hosts/<hostname>/`; shared modules live in `modules/`.
-- System modules use `home-manager.useGlobalPkgs = true` and `home-manager.useUserPackages = false`.
+- System modules use `home-manager.useGlobalPkgs = true` and `home-manager.useUserPackages = true`.
 - `specialArgs` passes `{ inputs }` to system modules and `{ inputs; username; realname }` to home-manager modules.
 - Two LSP servers for Nix are installed: `nixd` (preferred) and `nil`.
 - Nushell is the user's login shell (set via `users.users.fractal.shell` in `modules/system/user/default.nix`); bash is kept installed as a rescue shell.

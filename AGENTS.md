@@ -4,12 +4,12 @@
 This repository is a multi-host NixOS flake. [`flake.nix`](/home/fractal/Developer/os/flake.nix) defines the two active hosts: `feywild` and `maple`.
 
 - `hosts/<host>/` contains host-specific entrypoints and generated hardware files.
-- `modules/system/` contains shared NixOS modules (`nixos/`, `desktop/`, `packages/`, `user/`).
+- `modules/system/` contains the shared base NixOS layer plus explicit roles (`nixos/`, `desktop/`, `packages/`, `roles/`, `user/`).
 - `modules/home/` contains shared Home Manager modules, including `niri/` and user package configs under `pkgs/`.
 - `modules/gaming/` and `modules/security/` are opt-in feature modules imported by specific hosts.
 - `assets/wallpapers/` stores static desktop assets.
 
-Prefer shared changes in `modules/`; keep hardware, boot, and machine-only overrides inside `hosts/<host>/`.
+Prefer shared changes in `modules/`; keep hardware, boot, and machine-only overrides inside `hosts/<host>/`. When a change should not apply to every machine, put it behind an explicit role import.
 
 ## Build, Test, and Development Commands
 - `nix flake check` validates flake evaluation and catches broken imports.
