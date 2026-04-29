@@ -1,4 +1,4 @@
 { ... }:
 {
-  imports = [ ../../packages/work.nix ];
+  imports = [ ../../packages/work ];
 }

@@ -1,15 +1,11 @@
-{ ... }:
+let
+  ezaAliases = import ../shell-aliases.nix;
+in
 {
   programs.nushell = {
     enable = true;
 
-    shellAliases = {
-      # ls replacements (eza)
-      ls = "eza";
-      ll = "eza -l --git";
-      la = "eza -la --git";
-      lt = "eza --tree --level=2";
-
+    shellAliases = ezaAliases // {
       # Git shortcuts
       gs = "git status";
       gd = "git diff";

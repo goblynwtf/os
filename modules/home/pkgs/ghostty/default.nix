@@ -3,6 +3,7 @@
   programs.ghostty = {
     enable = true;
     settings = {
+      # Optional include so Ghostty still starts before DMS generates the theme file.
       config-file = "?themes/dankcolors";
 
       font-family = "PragmataPro Mono Liga";

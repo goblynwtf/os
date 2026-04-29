@@ -1,10 +1,10 @@
 { ... }:
 {
   imports = [
-    ./audio.nix
-    ./bluetooth.nix
-    ./graphics.nix
-    ./nix-ld.nix
+    ../audio
+    ../bluetooth
+    ../graphics
+    ../nix-ld
   ];
 
   services.udisks2.enable = true;

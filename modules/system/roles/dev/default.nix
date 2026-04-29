@@ -1,9 +1,9 @@
-{ lib, ... }:
+{ ... }:
 {
   imports = [
-    ../../nixos/virtualization.nix
-    ../../packages/dev.nix
+    ../../nixos/virtualization
+    ../../packages/dev
   ];
 
-  users.users.fractal.extraGroups = lib.mkAfter [ "docker" ];
+  users.users.fractal.extraGroups = [ "docker" ];
 }

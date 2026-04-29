@@ -1,15 +1,11 @@
-{ ... }:
+let
+  ezaAliases = import ../shell-aliases.nix;
+in
 {
   programs.bash = {
     enable = true;
 
-    shellAliases = {
-      # ls replacements (eza)
-      ls = "eza";
-      ll = "eza -l --git";
-      la = "eza -la --git";
-      lt = "eza --tree --level=2";
-
+    shellAliases = ezaAliases // {
       # NixOS rebuild shortcuts
       rebuild = "sudo nixos-rebuild switch --flake .#$(hostname)";
       rebuild-build = "nixos-rebuild build --flake .#$(hostname)";

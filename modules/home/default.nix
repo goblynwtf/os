@@ -1,8 +1,6 @@
 { ... }:
 {
   imports = [
-    ./desktop
-    ./niri
     ./pkgs
   ];
 
