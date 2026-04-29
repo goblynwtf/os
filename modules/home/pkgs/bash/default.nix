@@ -19,6 +19,7 @@ in
 
       # Editor
       e = "zeditor";
+      org = "emacs ~/org";
 
       # Safety
       rm = "rm -i";

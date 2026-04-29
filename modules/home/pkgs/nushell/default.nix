@@ -17,6 +17,7 @@ in
 
       # Editor
       e = "zeditor";
+      org = "emacs ~/org";
 
       zj = "zellij";
     };
