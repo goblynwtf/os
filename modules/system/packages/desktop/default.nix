@@ -4,7 +4,6 @@
     cups-pk-helper
     file-roller
     firefox
-    kitty
     nautilus
     playerctl
     spotify

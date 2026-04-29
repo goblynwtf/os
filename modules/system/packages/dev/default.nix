@@ -10,7 +10,6 @@
     gnumake
     helix
     i2c-tools
-    nil
     nixd
     python3
   ];

@@ -6,7 +6,6 @@
     ../../modules/system
     ../../modules/system/roles/desktop
     ../../modules/system/roles/dev
-    ../../modules/system/roles/work
     ../../modules/gaming
     ../../modules/security
   ];
