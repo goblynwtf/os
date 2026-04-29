@@ -13,9 +13,12 @@
   # nix-ld provides a real dynamic linker at the generic-Linux path so
   # such helpers can run. The helper dlopens libva at runtime for VAAPI
   # (AMD hardware encoding probe), so libva must be on NIX_LD_LIBRARY_PATH.
+  # Zed's registry-downloaded codex-acp binary is another generic-Linux
+  # binary and needs libcap at runtime.
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [
+      libcap.lib
       libva
     ];
   };

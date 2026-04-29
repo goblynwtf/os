@@ -170,6 +170,12 @@
 
     userKeymaps = [
       {
+        context = "Editor && mode == full";
+        bindings = {
+          "ctrl-c i" = "editor::SelectLargerSyntaxNode";
+        };
+      }
+      {
         context = "Workspace";
         bindings = {
           ctrl-shift-t = "workspace::NewTerminal";
