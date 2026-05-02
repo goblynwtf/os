@@ -7,6 +7,7 @@
     ./emacs
     ./git
     ./nushell
+    ./obsidian
     ./rust
     ./zed
     ./zellij
@@ -26,7 +27,6 @@
     fastfetch
 
     postman
-    obsidian
     koodo-reader
     (pkgs.symlinkJoin {
       name = "synology-drive-client";
