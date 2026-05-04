@@ -123,7 +123,11 @@ window-rule {
 
 window-rule {
     match app-id="synology-drive"
+    match app-id="cloud-drive-ui"
     open-on-workspace "misc"
+    open-floating true
+    default-column-width { fixed 900; }
+    default-window-height { fixed 700; }
 }
 
 // special-case rules
