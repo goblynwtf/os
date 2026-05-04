@@ -16,22 +16,6 @@
     };
   };
 
-  systemd.user.services.nm-applet = {
-    Unit = {
-      Description = "NetworkManager secret agent";
-      After = [ "graphical-session.target" ];
-      PartOf = [ "graphical-session.target" ];
-    };
-    Service = {
-      ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator";
-      Restart = "on-failure";
-      RestartSec = 1;
-    };
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
-    };
-  };
-
   imports = [
     inputs.dms.homeModules.dank-material-shell
   ];
@@ -90,6 +74,52 @@
       showBattery = true;
       showControlCenterButton = true;
       showCapsLockIndicator = true;
+
+      # Control Center — tiles and bar-button status icons
+      controlCenterShowPrinterIcon = true;
+      controlCenterShowVpnIcon = true;
+      controlCenterWidgets = [
+        {
+          id = "wifi";
+          enabled = true;
+          width = 50;
+        }
+        {
+          id = "bluetooth";
+          enabled = true;
+          width = 50;
+        }
+        {
+          id = "audioInput";
+          enabled = true;
+          width = 50;
+        }
+        {
+          id = "audioOutput";
+          enabled = true;
+          width = 50;
+        }
+        {
+          id = "nightMode";
+          enabled = true;
+          width = 50;
+        }
+        {
+          id = "darkMode";
+          enabled = true;
+          width = 50;
+        }
+        {
+          id = "builtin_cups";
+          enabled = true;
+          width = 50;
+        }
+        {
+          id = "builtin_vpn";
+          enabled = true;
+          width = 50;
+        }
+      ];
 
       # Clock — 12h, no padding, no seconds
       use24HourClock = false;
@@ -230,7 +260,7 @@
   # Tell Qt (used by QuickShell/DMS system tray) to use Adwaita icons.
   # gtk.iconTheme only affects GTK apps; SNI icons in the tray are resolved
   # via QIcon::fromTheme() which reads qt5ct/qt6ct — without this, Qt falls
-  # back to hicolor which has no nm-applet network icons.
+  # back to hicolor and misses common status icons.
   xdg.configFile."qt5ct/qt5ct.conf".text = ''
     [Appearance]
     icon_theme=Adwaita
