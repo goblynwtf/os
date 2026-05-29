@@ -2,7 +2,8 @@ export def flake-ref [] { $".#(sys host | get hostname)" }
 
 export def flake-bump [] {
     git add flake.lock
-    if $env.LAST_EXIT_CODE == 0 {
+    let staged = (do --ignore-errors { git diff --cached --quiet } | complete)
+    if $staged.exit_code != 0 {
         git commit -m "flake bump"
     }
 }

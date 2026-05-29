@@ -8,27 +8,21 @@
     ../../modules/system/roles/desktop
     ../../modules/system/roles/dev
     ../../modules/gaming
-    ../../modules/security
+    ../../modules/pentest
   ];
 
   networking.hostName = "maple";
 
-  # Intel I225-V (rev 01) fix: disable PCIe power saving and EEE to prevent network drops
+  # Intel I225-V (rev 01) fix: disable PCIe power saving + EEE to prevent
+  # network drops. The udev rule matches the igc driver instead of a fixed
+  # interface name, so the workaround survives interface-name churn.
   boot.kernelParams = [
     "pcie_aspm=off"
     "pcie_port_pm=off"
   ];
-  systemd.services.fix-i225v = {
-    description = "Disable EEE on Intel I225-V to prevent connection drops";
-    after = [ "network-pre.target" ];
-    wants = [ "network-pre.target" ];
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
-      ExecStart = "${pkgs.ethtool}/bin/ethtool --set-eee enp14s0 eee off";
-    };
-  };
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="net", ENV{ID_NET_DRIVER}=="igc", RUN+="${pkgs.ethtool}/bin/ethtool --set-eee %k eee off"
+  '';
 
   zramSwap = {
     enable = true;

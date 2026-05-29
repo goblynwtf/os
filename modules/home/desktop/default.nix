@@ -191,7 +191,10 @@
       lockScreenShowSystemIcons = true;
       lockScreenShowPasswordField = true;
 
-      # Fonts
+      # Fonts — Berkeley Mono and PragmataPro Mono Liga are proprietary and
+      # installed outside Nix (~/.local/share/fonts). They are not in
+      # fonts.packages, so a fresh machine falls back to system defaults
+      # until the user copies the font files in.
       fontFamily = "Berkeley Mono";
       monoFontFamily = "PragmataPro Mono Liga";
       fontScale = 1.0;

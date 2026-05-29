@@ -15,9 +15,7 @@
 
   home.packages = with pkgs; [
     discord
-    (dbvisualizer.overrideAttrs (old: {
-      installPhase = builtins.replaceStrings [ "${openjdk17}" ] [ "${openjdk21}" ] old.installPhase;
-    }))
+    dbvisualizer
 
     gh
     sublime-merge

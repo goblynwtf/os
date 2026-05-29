@@ -1,24 +1,14 @@
 let
-  ezaAliases = import ../shell-aliases.nix;
+  sharedAliases = import ../shell-aliases.nix;
 in
 {
   programs.nushell = {
     enable = true;
 
-    shellAliases = ezaAliases // {
-      # Git shortcuts
-      gs = "git status";
-      gd = "git diff";
-      gl = "git log --oneline --graph --decorate -20";
-
-      # Flake shortcuts
+    shellAliases = sharedAliases // {
+      # Nushell-specific shortcuts (rebuild/rebuild-build live in commands.nu)
       nfu = "nix flake update";
       nfc = "nix flake check";
-
-      # Editor
-      e = "zeditor";
-      org = "emacs ~/org";
-
       zj = "zellij";
     };
 

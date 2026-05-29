@@ -26,6 +26,8 @@ let
     useMarkdownLinks = true;
   };
 
+  # Berkeley Mono and PragmataPro Mono Liga are proprietary fonts installed
+  # outside Nix (~/.local/share/fonts); not present in fonts.packages.
   appearanceSettings = {
     baseFontSize = 16;
     enabledCssSnippets = [ "nix-managed" ];
