@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
 
 {
   imports = [
@@ -26,15 +26,30 @@
     realname = "Arto Levi";
   };
 
-  nixpkgs = {
-    overlays = [
-
+  # Explicit unfree allowlist instead of a blanket allowUnfree, so a future
+  # flake update / new dependency that pulls in an unexpected proprietary
+  # package fails loudly instead of being installed silently. To regenerate:
+  # temporarily set this to `pkg: true` and check the build for new names.
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "1password"
+      "1password-cli"
+      "burpsuite"
+      "claude-code"
+      "dbvisualizer"
+      "discord"
+      "google-chrome"
+      "idea"
+      "obsidian"
+      "postman"
+      "slack"
+      "spotify"
+      "steam"
+      "steam-unwrapped"
+      "sublime-merge"
+      "synology-drive-client"
     ];
-
-    config = {
-      allowUnfree = true;
-    };
-  };
 
   system.stateVersion = "25.11";
 }

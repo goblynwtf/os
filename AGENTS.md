@@ -1,12 +1,12 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-This repository is a multi-host NixOS flake. [`flake.nix`](/home/fractal/Developer/os/flake.nix) defines the two active hosts: `feywild` and `maple`.
+This repository is a multi-host NixOS flake. [`flake.nix`](/home/fractal/Developer/os/flake.nix) defines the two active hosts: `feywild` and `maple`. See [`CLAUDE.md`](/home/fractal/Developer/os/CLAUDE.md) for the canonical module-tree reference; this file focuses on contribution conventions and keeps the structure summary brief to avoid the two drifting.
 
 - `hosts/<host>/` contains host-specific entrypoints and generated hardware files.
 - `modules/system/` contains the shared base NixOS layer plus explicit roles (`nixos/`, `desktop/`, `packages/`, `roles/`, `user/`).
 - `modules/home/` contains shared Home Manager modules, including `niri/` and user package configs under `pkgs/`.
-- `modules/gaming/` and `modules/security/` are opt-in feature modules imported by specific hosts.
+- `modules/gaming/` and `modules/pentest/` are opt-in feature modules imported by specific hosts.
 - `assets/wallpapers/` stores static desktop assets.
 
 Prefer shared changes in `modules/`; keep hardware, boot, and machine-only overrides inside `hosts/<host>/`. When a change should not apply to every machine, put it behind an explicit role import.

@@ -1,8 +1,11 @@
 { ... }:
+let
+  editorCommand = "zeditor --wait";
+in
 {
   home.sessionVariables = {
-    EDITOR = "zeditor --wait";
-    VISUAL = "zeditor --wait";
+    EDITOR = editorCommand;
+    VISUAL = editorCommand;
   };
 
   programs.zed-editor = {
@@ -66,8 +69,8 @@
         blinking = "off";
         dock = "bottom";
         env = {
-          EDITOR = "zeditor --wait";
-          VISUAL = "zeditor --wait";
+          EDITOR = editorCommand;
+          VISUAL = editorCommand;
         };
         font_family = "PragmataPro Mono Liga";
         working_directory = "current_project_directory";

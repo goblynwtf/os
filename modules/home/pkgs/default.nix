@@ -17,7 +17,6 @@
     discord
     dbvisualizer
 
-    gh
     sublime-merge
     telegram-desktop
 
@@ -26,6 +25,10 @@
 
     postman
     koodo-reader
+
+    # Synology Drive is a Qt app that crashes under the global Wayland Qt
+    # platform (QT_QPA_PLATFORM=wayland in modules/system/desktop); force xcb
+    # for just this package via a thin wrapper.
     (pkgs.symlinkJoin {
       name = "synology-drive-client";
       paths = [ synology-drive-client ];
@@ -50,6 +53,7 @@
     tree
     calibre
     google-chrome
+    gthumb
     jetbrains.idea
 
     protonmail-desktop

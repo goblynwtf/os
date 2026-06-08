@@ -15,7 +15,8 @@
       window-padding-y = 12;
       background-opacity = 0.85;
 
-      scrollback-limit = 3023;
+      # Scrollback buffer size in BYTES (not lines); ~10 MB.
+      scrollback-limit = 10000000;
 
       cursor-style = "block";
       cursor-style-blink = true;

@@ -1,3 +1,10 @@
 .codex
 result
 result-*
+
+# Local scratch / machine-specific notes (kept out of the shared repo)
+HARDWARE-IMPROVEMENTS.md
+
+# Per-machine Claude Code permissions — ignore in-repo so it doesn't rely on
+# the user's global gitignore to stay out of commits.
+.claude/settings.local.json

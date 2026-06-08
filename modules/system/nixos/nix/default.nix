@@ -7,10 +7,10 @@
       "nix-command"
       "flakes"
     ];
-    trusted-users = [
-      "root"
-      "fractal"
-    ];
+    # Only root is trusted. A trusted user can make the nix-daemon build and
+    # substitute arbitrary content as root, which would bypass the sudo
+    # password gate; `sudo nixos-rebuild` still works since it runs as root.
+    trusted-users = [ "root" ];
     auto-optimise-store = true;
   };
 

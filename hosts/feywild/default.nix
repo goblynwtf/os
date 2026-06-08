@@ -10,7 +10,9 @@
 
   networking.hostName = "feywild";
 
-  # LUKS swap unlock (host-specific)
+  # Encrypted swap unlock (host-specific). Opened in initrd; the root volume is
+  # unlocked by the generated hardware-configuration.nix. Hibernation is
+  # intentionally not configured (no boot.resumeDevice), so swap is paging-only.
   boot.initrd.luks.devices."luks-dac4e371-be5c-4224-b2e1-e531f5affdc0".device =
     "/dev/disk/by-uuid/dac4e371-be5c-4224-b2e1-e531f5affdc0";
 }

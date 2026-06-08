@@ -1,21 +1,25 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    bind
-    binutils
-    claude-code
-    cmake
-    codex
+    # Compilers & build tools
     gcc
     gnumake
-    helix
-    i2c-tools
-    nixd
-    python3
-  ];
+    cmake
+    binutils
 
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
-  };
+    # Languages & language servers
+    python3
+    nixd
+
+    # Fallback CLI editor (primary editors zed/emacs are configured in home-manager)
+    helix
+
+    # AI coding CLIs
+    claude-code
+    codex
+
+    # Networking / hardware diagnostics
+    bind # dig/nslookup (BIND client tools)
+    i2c-tools # i2c bus probing for sensors
+  ];
 }

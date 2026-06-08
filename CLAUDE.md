@@ -43,9 +43,9 @@ This is a multi-host NixOS flake configuration (x86_64-linux) running on `nixpkg
 ```
 flake.nix
 ├── hosts/feywild/          ← laptop host (hardware + shared base + explicit roles)
-├── hosts/maple/            ← desktop host (hardware + shared base + explicit roles + gaming + security)
+├── hosts/maple/            ← desktop host (hardware + shared base + explicit roles + gaming + pentest)
 ├── modules/gaming/         ← maple-only: Steam, Proton-GE, Gamescope, GameMode, MangoHUD, corectrl, controllers
-├── modules/security/       ← maple-only security/network extras
+├── modules/pentest/        ← maple-only penetration-testing / security tooling packages
 ├── modules/system/         ← shared NixOS base plus role-scoped additions
 │   ├── default.nix         ← shared base system + shared Home Manager wiring
 │   ├── desktop/            ← graphical system stack shared by the desktop role
@@ -65,7 +65,7 @@ flake.nix
 - Hosts opt into `modules/system/roles/<name>/` explicitly for desktop/dev/work behavior.
 - The `desktop` role also pulls in desktop-specific Home Manager modules for `fractal`.
 - For host-specific modules, create them at `modules/<name>/` (top-level, not under `modules/system/`) and import explicitly from the host's `default.nix`.
-- Established pattern: `modules/gaming/` (maple-only).
+- Established pattern: `modules/gaming/` and `modules/pentest/` (both maple-only).
 
 **Hardware:**
 - `maple` — AMD Ryzen (Granite Ridge) + AMD Radeon RX 7700 XT / 7800 XT (RDNA 3), open-source amdgpu/Mesa/RADV

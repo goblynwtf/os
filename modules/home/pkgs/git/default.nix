@@ -10,6 +10,9 @@
     };
   };
 
+  # GitHub CLI lives here next to git (no settings to manage yet).
+  programs.gh.enable = true;
+
   programs.delta = {
     enable = true;
     enableGitIntegration = true;

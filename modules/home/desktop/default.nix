@@ -261,16 +261,14 @@
     };
   };
 
-  # Tell Qt (used by QuickShell/DMS system tray) to use Adwaita icons.
-  # gtk.iconTheme only affects GTK apps; SNI icons in the tray are resolved
-  # via QIcon::fromTheme() which reads qt5ct/qt6ct — without this, Qt falls
-  # back to hicolor and misses common status icons.
-  xdg.configFile."qt5ct/qt5ct.conf".text = ''
-    [Appearance]
-    icon_theme=Adwaita
-  '';
-  xdg.configFile."qt6ct/qt6ct.conf".text = ''
-    [Appearance]
-    icon_theme=Adwaita
-  '';
+  # qt5ct.conf / qt6ct.conf are intentionally NOT written here. DMS owns them
+  # via its matugen templates (matugenTemplateQt5ct/Qt6ct = true above) so Qt
+  # apps follow the dynamic wallpaper palette. A static Home Manager file would
+  # force-replace the DMS-generated conf and drop the color_scheme wiring,
+  # leaving the matugen palette orphaned.
+  #
+  # NOTE: environment.sessionVariables.QT_QPA_PLATFORMTHEME is set to "qt5ct"
+  # in modules/system/desktop. Verify Qt6 apps (and the tray's status icons)
+  # still pick up the qt6ct config + an icon theme after a rebuild; if not,
+  # set the platform theme per Qt version or have DMS provide the icon theme.
 }

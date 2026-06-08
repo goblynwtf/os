@@ -20,6 +20,6 @@ in
     '';
   };
 
-  home.file.".config/nushell/commands.nu".source = ./commands.nu;
-  home.file.".config/nushell/prompt.nu".source = ./prompt.nu;
+  xdg.configFile."nushell/commands.nu".source = ./commands.nu;
+  xdg.configFile."nushell/prompt.nu".source = ./prompt.nu;
 }
