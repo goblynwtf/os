@@ -49,6 +49,7 @@
       "steam-unwrapped"
       "sublime-merge"
       "synology-drive-client"
+      "teamspeak6-client"
     ];
 
   system.stateVersion = "25.11";
